@@ -1,0 +1,25 @@
+<div class="task-list">
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <app-task-form
+        [task]="selectedTask"
+        (taskSubmit)="onTaskSubmit($event)"
+        (cancel)="closeModal()"
+      ></app-task-form>
+    </div>
+  </div>
+
+  <app-task-filter (filterChange)="onFilterChange($event)"></app-task-filter>
+
+  <ul>
+    <li *ngFor="let task of filteredTasks" class="task-item">
+      <h3>{{ task.title }}</h3>
+      <p><strong>Description:</strong> {{ task.description }}</p>
+      <p><strong>Due Date:</strong> {{ task.dueDate }}</p>
+      <p><strong>Status:</strong> {{ task.status }}</p>
+      <p><strong>Priority:</strong> {{ task.priority }}</p>
+
+      <button (click)="editTask(task)">edit</button>
+    </li>
+  </ul>
+</div>

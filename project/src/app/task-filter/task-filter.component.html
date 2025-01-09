@@ -1,0 +1,23 @@
+<div class="task-filter">
+  <label for="status-filter">Filter by Status:</label>
+  <select
+    id="status-filter"
+    [(ngModel)]="selectedStatus"
+    (change)="onStatusChange()"
+  >
+    <option *ngFor="let status of statuses" [value]="status">
+      {{ status }}
+    </option>
+  </select>
+
+  <label for="priority-filter">Filter by Priority:</label>
+  <select
+    id="priority-filter"
+    [(ngModel)]="selectedPriority"
+    (change)="onPriorityChange()"
+  >
+    <option *ngFor="let priority of priorities" [value]="priority">
+      {{ priority }}
+    </option>
+  </select>
+</div>
