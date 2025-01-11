@@ -7,7 +7,7 @@ import { AuthServiceService } from '../auth-service.service';
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.css'],
+  styleUrls: ['./task-form.component.scss'],
 })
 export class TaskFormComponent implements OnInit {
   @Input() task: Task | null = null;
@@ -45,6 +45,7 @@ export class TaskFormComponent implements OnInit {
     if (this.taskForm.valid) {
       const task: Task = this.taskForm.value;
       console.log('Submitting New Task:', task);
+
       if (this.task) {
         this.taskSubmit.emit(task);
       } else {

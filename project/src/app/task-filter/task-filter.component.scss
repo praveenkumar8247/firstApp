@@ -2,7 +2,7 @@
 .task-filter {
   margin: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 label {
@@ -16,4 +16,8 @@ select {
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 150px;
+}
+
+.drop-down {
+  margin: 0 20px;
 }

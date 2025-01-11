@@ -4,7 +4,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/task-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/task-form', pathMatch: 'full' },
   { path: 'task-list', component: TaskListComponent },
   { path: 'task-form', component: TaskFormComponent },
 ];

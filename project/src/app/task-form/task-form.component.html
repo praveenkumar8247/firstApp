@@ -71,7 +71,7 @@
 
   <div class="form-buttons">
     <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary">
-      {{ task ? "Edit Task" : "Submit" }}
+      {{ task ? "change edited" : "Submit" }}
     </button>
     <button type="button" (click)="onCancel()" class="btn btn-secondary">
       Cancel

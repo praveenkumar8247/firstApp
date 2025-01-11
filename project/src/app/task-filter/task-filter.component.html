@@ -4,6 +4,7 @@
     id="status-filter"
     [(ngModel)]="selectedStatus"
     (change)="onStatusChange()"
+    class="drop-down"
   >
     <option *ngFor="let status of statuses" [value]="status">
       {{ status }}
@@ -15,6 +16,7 @@
     id="priority-filter"
     [(ngModel)]="selectedPriority"
     (change)="onPriorityChange()"
+    class="drop-down"
   >
     <option *ngFor="let priority of priorities" [value]="priority">
       {{ priority }}

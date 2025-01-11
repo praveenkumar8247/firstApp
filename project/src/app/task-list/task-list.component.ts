@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 import { Task } from '../models/task.model';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css'],
+  styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
-  constructor(private auth: AuthServiceService) {}
-  tasks: Task[] = [
+  displayedColumns: string[] = [
+    'title',
+    'description',
+    'dueDate',
+    'status',
+    'priority',
+    'edit',
+    'delete',
+  ];
+  dataSource = new MatTableDataSource<Task>([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  tasks: Task[] = [];
+  filteredTasks: Task[] = [];
+  selectedStatus: string = 'All';
+  selectedPriority: string = 'All';
+  selectedTask: Task | null = null;
+  isModalOpen: boolean = false;
+
+  defaultTasks: Task[] = [
     {
       title: 'Task 1',
       description: 'Description of task 1',
@@ -33,21 +56,38 @@ export class TaskListComponent implements OnInit {
     },
   ];
 
-  filteredTasks: Task[] = [...this.tasks];
-  selectedStatus: string = 'All';
-  selectedPriority: string = 'All';
-  selectedTask: Task | null = null;
-  isModalOpen: boolean = false;
+  constructor(private auth: AuthServiceService) {}
 
   ngOnInit(): void {
+    this.tasks = [...this.defaultTasks];
+
+    const tasksFromStorage = localStorage.getItem('tasks');
+    if (tasksFromStorage) {
+      const storedTasks: Task[] = JSON.parse(tasksFromStorage);
+
+      storedTasks.forEach((task) => {
+        if (!this.tasks.some((t) => t.title === task.title)) {
+          this.tasks.push(task);
+        }
+      });
+    }
+
+    this.applyFilters();
+
     this.auth.task$.subscribe((task: Task | null) => {
       if (task) {
-        this.tasks.push(task);
-
-        this.applyFilters();
+        if (!this.tasks.some((t) => t.title === task.title)) {
+          this.tasks.push(task);
+          this.saveTasksToLocalStorage();
+          this.applyFilters();
+        }
       }
     });
-    this.applyFilters();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   onFilterChange(filters: { status: string; priority: string }): void {
@@ -65,6 +105,8 @@ export class TaskListComponent implements OnInit {
         task.priority === this.selectedPriority;
       return statusMatch && priorityMatch;
     });
+
+    this.dataSource.data = this.filteredTasks;
   }
 
   onTaskSubmit(task: Task): void {
@@ -77,8 +119,13 @@ export class TaskListComponent implements OnInit {
       }
       this.selectedTask = null;
     } else {
+      if (!this.tasks.some((t) => t.title === task.title)) {
+        this.tasks.push(task);
+      }
     }
+
     this.closeModal();
+    this.saveTasksToLocalStorage();
     this.applyFilters();
   }
 
@@ -90,5 +137,30 @@ export class TaskListComponent implements OnInit {
   closeModal(): void {
     this.isModalOpen = false;
     this.selectedTask = null;
+  }
+
+  deleteTask(task: Task): void {
+    const isConfirmed = window.confirm(
+      'Are you sure you want to delete this task?'
+    );
+
+    if (isConfirmed) {
+      const index = this.tasks.indexOf(task);
+      if (index !== -1) {
+        this.tasks.splice(index, 1);
+        this.saveTasksToLocalStorage();
+        this.applyFilters();
+      }
+    }
+  }
+
+  saveTasksToLocalStorage(): void {
+    const nonDefaultTasks = this.tasks.filter(
+      (task) =>
+        !this.defaultTasks.some(
+          (defaultTask) => defaultTask.title === task.title
+        )
+    );
+    localStorage.setItem('tasks', JSON.stringify(nonDefaultTasks));
   }
 }
