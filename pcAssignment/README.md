@@ -1,27 +1,55 @@
-# PcAssignment
+To Run the Application run "npm start" this will run both the front and mock json server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+Project Structure
+The project follows a modular structure to enhance maintainability and scalability. The key modules and components include:
 
-## Development server
+1. App Module (AppModule)
+   Acts as the root module.
+   Configures core dependencies and routing.
+   Imports necessary feature modules (AuthModule, EventModule).
+2. Authentication Module (AuthModule)
+   Manages user authentication and registration.
+   Components:
+   LoginComponent – Handles user login.
+   RegistrationComponent – Manages new user registration.
+   Services:
+   AuthService – Handles authentication logic (mocked with JSON Server).
+3. Event Management Module (EventModule)
+   Manages event-related features.
+   Components:
+   EventListComponent – Displays a list of events.
+   EventFormComponent – Handles event creation and editing.
+   EventDetailsComponent – Shows details of a specific event.
+   Services:
+   EventService – Handles API interactions for event data.
+4. Confirmation Dialog Component (ConfirmationDialogComponent)
+   A reusable component for user confirmations (e.g., delete actions).
+   Uses Angular Material’s dialog (MatDialog) for UI.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+   Key Design Decisions:
 
-## Code scaffolding
+   1. Modular Architecture
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+   Splitting features into AuthModule and EventModule improves separation of concerns.
+   ConfirmationDialogComponent is a shared component, allowing reuse.
 
-## Build
+   2. Mock Backend with JSON Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   Chosen to simplify backend simulation during development.
+   Provides a REST-like API for authentication and event management.
 
-## Running unit tests
+   3. State Management Strategy
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   Uses Angular services (AuthService, EventService) for data management.
+   Uses RxJS (BehaviorSubject, Observables) for reactive data handling.
 
-## Running end-to-end tests
+   4. Material Design for UI
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   Angular Material was selected for a consistent, responsive UI.
+   Components such as MatTable, MatDialog, and MatButton enhance UX.
 
-## Further help
+   Third-Party Libraries Used
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Angular Material – Provides UI components (@angular/material).
+6. JSON Server – Mock backend for API responses (json-server).
+7. RxJS – Used for managing reactive data streams (rxjs).
