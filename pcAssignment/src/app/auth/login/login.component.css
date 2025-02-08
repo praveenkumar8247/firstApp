@@ -1,0 +1,48 @@
+mat-card {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 25px;
+  text-align: center;
+  background: var(--mat-mdc-card-background, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+mat-card-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--mat-mdc-text-color, #3f51b5);
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+input[matInput] {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.error-message {
+  color: var(--mat-mdc-error, #d32f2f);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--mat-mdc-button-background, #3f51b5);
+  color: var(--mat-mdc-button-text-color, #ffffff);
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: var(--mat-mdc-button-hover-background, #303f9f);
+}

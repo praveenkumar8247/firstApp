@@ -1,0 +1,176 @@
+<div class="ag-theme-alpine" style="width: 100%; height: 400px">
+  <ag-grid-angular
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    [rowSelection]="'multiple'"
+    class="ag-theme-alpine"
+    style="width: 100%; height: 400px"
+  >
+  </ag-grid-angular>
+</div>
+<div class="confirmation-popup" *ngIf="isConfirmationVisible">
+  <div class="confirmation-popup-content">
+    <h3>Are you sure you want to save the changes?</h3>
+    <div class="confirmation-actions">
+      <button class="confirm-btn" (click)="confirmSave()">Yes</button>
+      <button class="cancel-btn" (click)="cancelSave()">No</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isEditModalVisible">
+  <div class="modal-content">
+    <span class="close-icon" (click)="closeEditModal()">&#10006;</span>
+    <h1>Update Form Data</h1>
+    <form (ngSubmit)="onSaveEdit()">
+      <div>
+        <label for="id" class="highlighted-label">ID:</label>
+        <input id="id" [(ngModel)]="selectedRowData.id" name="id" disabled />
+      </div>
+      <div>
+        <label for="ruleName" class="highlighted-label">Rule Name:</label>
+        <input
+          id="ruleName"
+          [(ngModel)]="selectedRowData.ruleName"
+          name="ruleName"
+        />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Active:</label>
+        <select id="active" [(ngModel)]="selectedRowData.active" name="active">
+          <option value="Y">Y</option>
+          <option value="N">N</option>
+        </select>
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Type:</label>
+        <input id="active" [(ngModel)]="selectedRowData.type" name="type" />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Sub Type:</label>
+        <input
+          id="active"
+          [(ngModel)]="selectedRowData.subType"
+          name="sub Type"
+        />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Domain:</label>
+        <input id="active" [(ngModel)]="selectedRowData.domain" name="domain" />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Impacted:</label>
+        <input
+          id="active"
+          [(ngModel)]="selectedRowData.impacted"
+          name="Impacted"
+        />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Favourite:</label>
+        <select
+          id="active"
+          [(ngModel)]="selectedRowData.favourite"
+          name="favourite"
+        >
+          <option value="Y">Y</option>
+          <option value="N">N</option>
+        </select>
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Scheduled:</label>
+        <input
+          id="active"
+          [(ngModel)]="selectedRowData.scheduled"
+          name="Scheduled"
+        />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label"
+          >Last Scheduled Date:</label
+        >
+        <input
+          id="active"
+          [(ngModel)]="selectedRowData.lastScheduledDate"
+          name="lastscheduleddate"
+        />
+      </div>
+      <div>
+        <label for="active" class="highlighted-label">Alert:</label>
+        <select id="active" [(ngModel)]="selectedRowData.alert" name="alert">
+          <option value="Y">Y</option>
+          <option value="N">N</option>
+        </select>
+      </div>
+
+      <button type="submit">Save</button>
+      <button type="button" (click)="closeEditModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div class="toggle-panel-button" (click)="togglePanel()">
+  <span *ngIf="!isPanelOpen">&#x25C0;</span>
+  <span *ngIf="isPanelOpen">&#x25B6;</span>
+</div>
+
+<div class="slide-panel" [ngClass]="{ open: isPanelOpen }">
+  <h3>Show or hide columns</h3>
+  <div *ngFor="let col of columnDefs">
+    <label *ngIf="col.field">
+      <input
+        type="checkbox"
+        class="input-boxes"
+        [checked]="!hiddenColumns.includes(col.field)"
+        (change)="toggleColumn(col.field!)"
+      />
+      {{ col.headerName }}
+    </label>
+  </div>
+</div>
+
+<div *ngIf="selectedRowsData.length > 0">
+  <h3>Selected Rows</h3>
+  <table class="selected-rows-table">
+    <thead>
+      <tr>
+        <th>Rule ID</th>
+        <th>Rule Name</th>
+        <th>Active status</th>
+        <th>Rule Type</th>
+        <th>Sub Type</th>
+        <th>Domain</th>
+        <th>Impacted Records</th>
+        <th>Favourite</th>
+        <th>Scheduled Status</th>
+        <th>Last Scheduled Date</th>
+        <th>Alert</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of selectedRowsData">
+        <td>{{ row.id }}</td>
+        <td>{{ row.ruleName }}</td>
+        <td>{{ row.active }}</td>
+        <td>{{ row.type }}</td>
+        <td>{{ row.subType }}</td>
+        <td>{{ row.domain }}</td>
+        <td>{{ row.impacted }}</td>
+        <td>{{ row.favourite }}</td>
+        <td>{{ row.scheduled }}</td>
+        <td>{{ row.lastScheduledDate }}</td>
+        <td>{{ row.alert }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button
+  *ngIf="selectedRowsData.length > 0"
+  mat-raised-button
+  (click)="clearSelection()"
+  class="clear-selection-button"
+>
+  Clear Selection
+</button>

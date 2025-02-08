@@ -1,0 +1,21 @@
+<div *ngIf="isLoading" class="loading-message">Loading...</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<mat-card *ngIf="!isLoading && event">
+  <mat-card-title class="success-event">{{ message }}</mat-card-title>
+
+  <mat-card-content>
+    <div class="event-details">
+      <p><strong>Title:</strong> {{ event.title }}</p>
+      <p><strong>Description:</strong> {{ event.description }}</p>
+      <p><strong>Date:</strong> {{ event.date }}</p>
+      <p><strong>Location:</strong> {{ event.location }}</p>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="handleNavigation()">
+      {{ buttonLabel }}
+    </button>
+  </mat-card-actions>
+</mat-card>

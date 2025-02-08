@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.left-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.right-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+}

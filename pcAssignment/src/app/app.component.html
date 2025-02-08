@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+  <span>Event Manager</span>
+
+  <ng-container *ngIf="isAuthenticated; else loggedOut">
+    <div class="left-buttons">
+      <button
+        mat-stroked-button
+        color="accent"
+        (click)="createEvent()"
+        style="color: white"
+      >
+        + Create Event
+      </button>
+      <button
+        mat-stroked-button
+        color="accent"
+        routerLink="/events"
+        style="color: white"
+      >
+        View Events
+      </button>
+    </div>
+
+    <span class="spacer"></span>
+
+    <div class="right-buttons">
+      <button
+        mat-stroked-button
+        color="warn"
+        (click)="logout()"
+        style="color: white"
+      >
+        Logout
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <span class="spacer"></span>
+    <div class="right-buttons">
+      <button
+        mat-stroked-button
+        color="accent"
+        (click)="login()"
+        style="color: white; font-weight: bold; margin-left: 10px"
+      >
+        Log In
+      </button>
+      <button
+        mat-stroked-button
+        color="accent"
+        (click)="register()"
+        style="color: white; font-weight: bold"
+      >
+        New Registration
+      </button>
+    </div>
+  </ng-template>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

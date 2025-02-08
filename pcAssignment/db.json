@@ -1,0 +1,246 @@
+{
+  "events": [
+    {
+      "id": "4fb6",
+      "title": "event1",
+      "description": "this is event 2 description",
+      "date": "2025-02-21",
+      "location": "bglr"
+    },
+    {
+      "id": "fff1",
+      "title": "event4",
+      "description": "this is event4 discription",
+      "date": "2025-02-28",
+      "location": "bengaluru"
+    },
+    {
+      "id": "8f38",
+      "title": "event 6",
+      "description": "this is event6 discription",
+      "date": "2025-02-20",
+      "location": "knl"
+    },
+    {
+      "id": "44ec",
+      "title": "de",
+      "description": "der",
+      "date": "2025-02-20",
+      "location": "de"
+    },
+    {
+      "id": "bf34",
+      "title": "sweser",
+      "description": "ses",
+      "date": "2025-02-21",
+      "location": "se"
+    },
+    {
+      "id": "c6c5",
+      "title": "se",
+      "description": "se",
+      "date": "2025-02-27",
+      "location": "se"
+    },
+    {
+      "id": "6cef",
+      "title": "al",
+      "description": "l",
+      "date": "2025-02-13",
+      "location": "sas"
+    },
+    {
+      "id": "e2e1",
+      "title": "sq",
+      "description": "a",
+      "date": "2025-02-22",
+      "location": "q"
+    },
+    {
+      "id": "9667",
+      "title": "sa",
+      "description": "mla",
+      "date": "2025-02-28",
+      "location": "30"
+    },
+    {
+      "id": "5645",
+      "title": "swsw",
+      "description": "sws",
+      "date": "2025-02-20",
+      "location": "swsw"
+    },
+    {
+      "id": "5645",
+      "title": "swsw",
+      "description": "sws",
+      "date": "2025-02-20",
+      "location": "swsw"
+    },
+    {
+      "id": "e139",
+      "title": "p",
+      "description": "p",
+      "date": "2025-02-20",
+      "location": "p"
+    },
+    {
+      "id": "9929",
+      "title": "s",
+      "description": "s",
+      "date": "2025-03-01",
+      "location": "s"
+    },
+    {
+      "id": "9929",
+      "title": "s",
+      "description": "s",
+      "date": "2025-03-01",
+      "location": "s"
+    },
+    {
+      "id": "dae9",
+      "title": "sws",
+      "description": "a",
+      "date": "2025-03-08",
+      "location": "a"
+    },
+    {
+      "id": "db96",
+      "title": "killi",
+      "description": "billi",
+      "date": "2025-02-20",
+      "location": "sw"
+    },
+    {
+      "id": "502b",
+      "title": "killii2",
+      "description": "billi2",
+      "date": "2025-02-22",
+      "location": "we"
+    },
+    {
+      "id": "887c",
+      "title": "prave",
+      "description": "sddsd",
+      "date": "2025-02-27",
+      "location": "sas"
+    },
+    {
+      "id": "c6c3",
+      "title": "kiran",
+      "description": "asssas",
+      "date": "2025-03-01",
+      "location": "ass"
+    },
+    {
+      "id": "7338",
+      "title": "kla",
+      "description": "sas",
+      "date": "2025-02-28",
+      "location": "sas"
+    },
+    {
+      "id": "ec40",
+      "title": "kearsalsas",
+      "description": "sas",
+      "date": "2025-02-28",
+      "location": "ass"
+    },
+    {
+      "id": "7d2a",
+      "title": "check",
+      "description": "check2",
+      "date": "2025-02-14",
+      "location": "bengaluru"
+    },
+    {
+      "id": "769e",
+      "title": "kirab",
+      "description": "kikijin",
+      "date": "2025-02-28",
+      "location": "hy"
+    },
+    {
+      "id": "0b30",
+      "title": "last try",
+      "description": "da",
+      "date": "2025-03-01",
+      "location": "fds"
+    },
+    {
+      "id": "10d1",
+      "title": "jhuyfu",
+      "description": "dfcgmj",
+      "date": "2025-02-28",
+      "location": "bhb"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "username": "john_doe",
+      "password": "password123"
+    },
+    {
+      "id": "6861",
+      "username": "praveen",
+      "password": "kumar"
+    },
+    {
+      "id": "220e",
+      "username": "kiran",
+      "password": "karan"
+    },
+    {
+      "id": "563d",
+      "username": "billa",
+      "password": "billa1"
+    },
+    {
+      "id": "2d96",
+      "username": "praveen",
+      "password": "kumar"
+    },
+    {
+      "id": "037e",
+      "username": "raju",
+      "password": "raju"
+    },
+    {
+      "id": "b40c",
+      "username": "praveen",
+      "password": "lol"
+    },
+    {
+      "id": "9d65",
+      "username": "praveen",
+      "password": "kumar"
+    },
+    {
+      "id": "ac46",
+      "username": "klo",
+      "password": "billa"
+    },
+    {
+      "id": "2a78",
+      "username": "man",
+      "password": "man"
+    },
+    {
+      "id": "078c",
+      "username": "km",
+      "password": "km"
+    },
+    {
+      "id": "ea82",
+      "username": "charan1",
+      "password": "charan"
+    }
+  ]
+}
